@@ -3,8 +3,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 @Entity
 public class BankClient {
+    private static final Logger LOGGER = LoggerFactory.getLogger(BankClient.class);
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,6 +27,7 @@ public class BankClient {
     }
 
     public void setName(String name) {
+        LOGGER.info("Setting name: {}", name);
         this.name = name;
     }
 
@@ -32,6 +36,7 @@ public class BankClient {
     }
 
     public void setEmail(String email) {
+        LOGGER.info("Setting email: {}", email);
         this.email = email;
     }
 
@@ -40,6 +45,7 @@ public class BankClient {
     }
 
     public void setBirthdate(String birthdate) {
+        LOGGER.info("Setting birthdate: {}", birthdate);
         this.birthdate = birthdate;
     }
 }
